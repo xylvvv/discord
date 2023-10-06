@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { initialProfile } from "@/lib/initial-profile";
 import { db } from "@/lib/db";
 
+import InitialCard from "./_components/initial-card";
+
 const SetupPage = async () => {
   const profile = await initialProfile();
 
@@ -21,7 +23,9 @@ const SetupPage = async () => {
   }
 
   return (
-    <div>Create a Server</div>
+    <div className="w-full h-full flex items-center justify-center">
+      <InitialCard />
+    </div>
   );
 }
  
