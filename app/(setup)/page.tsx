@@ -23,7 +23,7 @@ const SetupPage = async () => {
   }
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="h-full flex items-center justify-center">
       <InitialCard />
     </div>
   );
