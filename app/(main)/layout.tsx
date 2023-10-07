@@ -4,12 +4,14 @@ const MainLayout = async ({
   children,
   createServerModal,
   inviteModal,
-  editServerModal
+  editServerModal,
+  membersModal
 }: {
   children: React.ReactNode,
   createServerModal: React.ReactNode,
   inviteModal: React.ReactNode,
-  editServerModal: React.ReactNode
+  editServerModal: React.ReactNode,
+  membersModal: React.ReactNode
 }) => {
   return (
     <div className="h-full">
@@ -22,6 +24,7 @@ const MainLayout = async ({
       {createServerModal}
       {inviteModal}
       {editServerModal}
+      {membersModal}
     </div>
   );
 }
