@@ -3,11 +3,13 @@ import NavigationSidebar from "./_components/navigation/navigation-sidebar";
 const MainLayout = async ({
   children,
   createServerModal,
-  inviteModal
+  inviteModal,
+  editServerModal
 }: {
   children: React.ReactNode,
   createServerModal: React.ReactNode,
-  inviteModal: React.ReactNode
+  inviteModal: React.ReactNode,
+  editServerModal: React.ReactNode
 }) => {
   return (
     <div className="h-full">
@@ -19,6 +21,7 @@ const MainLayout = async ({
       </main>
       {createServerModal}
       {inviteModal}
+      {editServerModal}
     </div>
   );
 }

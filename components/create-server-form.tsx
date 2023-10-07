@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { Server } from "@prisma/client";
 
 import {
   Form,
@@ -29,11 +31,13 @@ const formSchema = z.object({
 interface CreateServerFormProps {
   footerRender: (loading: boolean) => React.ReactNode;
   handleClose?: () => void;
+  server?: Server;
 }
 
 const CreateServerForm = ({
   footerRender,
-  handleClose
+  handleClose,
+  server
 }: CreateServerFormProps) => {
   const router = useRouter();
 
@@ -47,9 +51,20 @@ const CreateServerForm = ({
 
   const isLoading = form.formState.isSubmitting;
 
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageUrl", server.imageUrl);
+    }
+  }, [server, form]);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post('/api/servers', values)
+      if (server) {
+        await axios.patch(`/api/servers/${server.id}`, values);
+      } else {
+        await axios.post('/api/servers', values)
+      }
 
       form.reset();
       router.refresh();
