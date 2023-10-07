@@ -2,10 +2,12 @@ import NavigationSidebar from "./_components/navigation/navigation-sidebar";
 
 const MainLayout = async ({
   children,
-  createServerModal
+  createServerModal,
+  inviteModal
 }: {
   children: React.ReactNode,
   createServerModal: React.ReactNode,
+  inviteModal: React.ReactNode
 }) => {
   return (
     <div className="h-full">
@@ -16,6 +18,7 @@ const MainLayout = async ({
         {children}
       </main>
       {createServerModal}
+      {inviteModal}
     </div>
   );
 }
