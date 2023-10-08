@@ -1,27 +1,10 @@
+import ModalProvider from "@/components/providers/modal-provider";
 import NavigationSidebar from "./_components/navigation/navigation-sidebar";
 
 const MainLayout = async ({
-  children,
-  createServerModal,
-  inviteModal,
-  editServerModal,
-  membersModal,
-  createChannelModal,
-  leaveServerModal,
-  deleteServerModal,
-  deleteChannelModal,
-  editChannelModal
+  children
 }: {
   children: React.ReactNode,
-  createServerModal: React.ReactNode,
-  inviteModal: React.ReactNode,
-  editServerModal: React.ReactNode,
-  membersModal: React.ReactNode,
-  createChannelModal: React.ReactNode,
-  leaveServerModal: React.ReactNode,
-  deleteServerModal: React.ReactNode,
-  deleteChannelModal: React.ReactNode,
-  editChannelModal: React.ReactNode
 }) => {
   return (
     <div className="h-full">
@@ -31,15 +14,7 @@ const MainLayout = async ({
       <main className="md:pl-[72px] h-full">
         {children}
       </main>
-      {createServerModal}
-      {inviteModal}
-      {editServerModal}
-      {membersModal}
-      {createChannelModal}
-      {leaveServerModal}
-      {deleteServerModal}
-      {deleteChannelModal}
-      {editChannelModal}
+      <ModalProvider />
     </div>
   );
 }
