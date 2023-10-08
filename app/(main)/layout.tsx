@@ -8,7 +8,9 @@ const MainLayout = async ({
   membersModal,
   createChannelModal,
   leaveServerModal,
-  deleteServerModal
+  deleteServerModal,
+  deleteChannelModal,
+  editChannelModal
 }: {
   children: React.ReactNode,
   createServerModal: React.ReactNode,
@@ -17,7 +19,9 @@ const MainLayout = async ({
   membersModal: React.ReactNode,
   createChannelModal: React.ReactNode,
   leaveServerModal: React.ReactNode,
-  deleteServerModal: React.ReactNode
+  deleteServerModal: React.ReactNode,
+  deleteChannelModal: React.ReactNode,
+  editChannelModal: React.ReactNode
 }) => {
   return (
     <div className="h-full">
@@ -34,6 +38,8 @@ const MainLayout = async ({
       {createChannelModal}
       {leaveServerModal}
       {deleteServerModal}
+      {deleteChannelModal}
+      {editChannelModal}
     </div>
   );
 }

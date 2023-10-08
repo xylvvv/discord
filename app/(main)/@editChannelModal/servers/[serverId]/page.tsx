@@ -11,12 +11,11 @@ import { Button } from "@/components/ui/button";
 import { useModal } from "@/hooks/use-modal-store";
 import CreateChannelForm from "@/components/create-channel-form";
 
-
-const CreateChannelModal = () => {
+const EditChannelModal = () => {
   const { isOpen, onClose, type, data } = useModal();
 
-  const isModalOpen = isOpen && type === "createChannel";
-  const { channelType } = data;
+  const isModalOpen = isOpen && type === "editChannel";
+  const { channel } = data;
 
   const handleClose = () => {
     onClose();
@@ -27,23 +26,23 @@ const CreateChannelModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Create Channel
+            Edit Channel
           </DialogTitle>
         </DialogHeader>
         <CreateChannelForm
           footerRender={(loading) => (
             <DialogFooter className="bg-gray-100 px-6 py-4">
               <Button variant="primary" disabled={loading}>
-                Create
+                Save
               </Button>
             </DialogFooter>
           )}
-          handleClose={onClose}
-          channelType={channelType}
+          handleClose={handleClose}
+          channel={channel}
         />
       </DialogContent>
     </Dialog>
   )
 };
 
-export default CreateChannelModal;
+export default EditChannelModal;

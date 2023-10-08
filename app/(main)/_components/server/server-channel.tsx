@@ -27,7 +27,6 @@ const iconMap = {
 
 const ServerChannel = ({
   channel,
-  server,
   role
 }: ServerChannelProps) => {
   const { onOpen } = useModal();
@@ -42,7 +41,7 @@ const ServerChannel = ({
 
   const onAction = (e: React.MouseEvent, action: ModalType) => {
     e.stopPropagation();
-    onOpen(action, { channel, server });
+    onOpen(action, { channel });
   }
 
   return (
